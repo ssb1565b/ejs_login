@@ -7,6 +7,7 @@ const app = express()
 const PORT = 4001
 
 const mainRouter = require('./routes/login')
+const userRouter = require('./routes/userRouter')
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -15,6 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', mainRouter)
+app.use('/users', userRouter)
 
 // 이게 왜 실행 안되고 위에거가 실행되는지 문의드리기
 app.get('/', (req, res) => {
