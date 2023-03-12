@@ -6,8 +6,8 @@ const app = express()
 
 const PORT = 4001
 
-app.get('/', (req, res) => {
-  res.send('Hello, Express world')
+app.use('/', (req, res) => {
+  res.send('로그인페이지')
 })
 // const mainRouter = require("./routes");
 app.listen(PORT, () => {
