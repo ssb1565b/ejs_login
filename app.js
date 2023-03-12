@@ -6,11 +6,14 @@ const app = express()
 
 const PORT = 4001
 
-const mainRouter = require('./routes')
+const mainRouter = require('./routes/login')
 const userRouter = require('./routes/userRouter')
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', mainRouter)
 app.use('/users', userRouter)
